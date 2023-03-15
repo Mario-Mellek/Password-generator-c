@@ -11,9 +11,7 @@ int main()
 	printf("\t\t\t\t\t\t============================\n");
 	printf("\t\t\t\t\t\tWelcome to the P/W Generator\n");
 	printf("\t\t\t\t\t\t============================\n\n");
-
 	generate();
-
 	printf("\t\t\t\t\t\t============================\n");
 	printf("\t\t\t\t\t\t          File Saved        \n");
 	printf("\t\t\t\t\t\t============================\n\n");
@@ -34,23 +32,17 @@ void generate()
 	if(isalpha(name[0]) == 0)
 		printf("Name must start with a charachter\n");
 	} while(isalpha(name[0]) == 0);
-
 	printf("Enter a short description (100 charcs max): ");
 	fgets(description, 100, stdin);
-	
 	printf("Password length: ");
 	scanf("%d", &length);
-	
 	FILE *ptr;
 	int i;
 	srand(time(NULL));
 	char filename[10];
-
 	strcpy(filename, name);
-
 	filename[strcspn(filename, "\n")] = 0;
-	strcat(filename, ".txt");
-	
+	strcat(filename, ".txt");	
 	ptr = fopen(filename, "w");
 	fprintf(ptr, "name: %s\ndescription: %s\nlength: %d\n", 
 			name, description, length);
